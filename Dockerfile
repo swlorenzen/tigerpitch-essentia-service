@@ -1,4 +1,4 @@
-FROM ghcr.io/mtg/essentia:latest
+FROM python:3.11-slim
 
 WORKDIR /app
 
