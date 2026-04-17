@@ -1,6 +1,21 @@
-FROM ghcr.io/mtg/essentia:latest
-
+FROM python:3.11-slim
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    libfftw3-dev \
+    libyaml-dev \
+    libtag1-dev \
+    libsamplerate0-dev \
+    libavcodec-dev \
+    libavformat-dev \
+    libavutil-dev \
+    libswresample-dev \
+    libeigen3-dev \
+    build-essential \
+    pkg-config \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
